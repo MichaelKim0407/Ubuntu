@@ -3,17 +3,13 @@
 Run as `root` in this directory:
 
 ```
-ln -s $(pwd)/bash.* /etc/
+ln -s $(pwd)/bash.* /private/etc/
 ```
 
-Add at the bottom of `/etc/bash.bashrc`
+Add at the bottom of `/private/etc/bashrc`
 
 ```
-if [ -f /etc/bash.functions ]; then
-    source /etc/bash.functions
-fi
+[ -r "/etc/bash.aliases" ] && . "/etc/bash.aliases"
 
-if [ -f /etc/bash.aliases ];then
-    source /etc/bash.aliases
-fi
+[ -r "/etc/bash.functions" ] && . "/etc/bash.functions"
 ```
